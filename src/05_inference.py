@@ -21,8 +21,6 @@ final_test_data = data.filter(col("Churn") == "0")
 final_test_data = assembler.transform(final_test_data).select("customerID", "features", "Churn")
 test_data = final_test_data.select("features", "Churn").toPandas()
 
-data.write.mode("append").saveAsTable("workspace.telco.train_data")
-
 X_test = test_data["features"].tolist()
 y_test = test_data["Churn"]
 
